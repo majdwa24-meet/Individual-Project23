@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup</title>
+</head>
+<body>
+
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+
+    <p style="background-image: url('https://pickywallpapers.com/img/2020/7/hogwarts-legacy-hd-wallpaper-background-2351-2388-hd-wallpapers.jpg');">
+    <form method="post" action="/signup">
+        <!-- Heading -->
+        <h4>
+            Create an account
+        </h4>
+
+        <!-- Subheading -->
+        <p >
+            Please fill up your information below to sign up.
+        </p>
+
+        <!-- Email -->
+        <div>
+            <label>Email address*</label>
+            <div>
+                <input type="email"  name="email" id="emailStr" required>
+            </div>
+        </div>
+
+        <!-- Password -->
+
+        <div>
+            <label>Password*</label>
+            <div class="input-group">
+                <input type="password"  name="password" minlength="6" required>
+            </div>
+        </div>
+
+        <div>
+            <label>full name</label>
+            <div class="input-group">
+                <input type="text"  name="name">
+            </div>
+        </div>
+
+        <div>
+            <label>username</label>
+            <div class="input-group">
+                <input type="text"  name="username">
+            </div>
+        </div>
+
+        <div>
+            <label>bio</label>
+            <div class="input-group">
+                <input type="text"  name="bio" maxlength="280">
+            </div>
+        </div>
+
+
+        <!-- Button -->
+        <div>
+            <input class="bye" type="submit"/>
+        </div>
+    </form>
+    <br>
+    <a href="/"><button>signin</button></a>
+     <style>
+
+body{
+  background-image: url('https://pickywallpapers.com/img/2020/7/hogwarts-legacy-hd-wallpaper-background-2351-2388-hd-wallpapers.jpg');
+}
+
+ #hi {
+     line-height: 12px;
+     width: 18px;
+     font-size: 8pt;
+     font-family: tahoma;
+     margin-top: 1px;
+     margin-right: 2px;
+     position:absolute;
+     top:0;
+     right:200px;
+ }
+     body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    margin: 20px;
+  }
+
+  h1 {
+    color: #a03f31;
+    font-size: 36px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  #questionBody {
+    margin: 20px 0;
+  }
+
+  button {
+    display: block;
+    width: 200px;
+    height: 40px;
+    margin: 10px auto;
+    background-color: #a03f31;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  button:hover {
+    background-color: #6e1a0f;
+  }
+
+  #b4 {
+    display: none;
+  }
+
+  #repeatButton {
+    display: none;
+    background-color: #222;
+    border: 2px solid #a03f31;
+    color: #a03f31;
+    font-size: 18px;
+    padding: 10px 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+  }
+
+  #repeatButton:hover {
+    background-color: #a03f31;
+    color: #fff;
+  }
+
+  #result {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+</style>
+</body>
+</html>

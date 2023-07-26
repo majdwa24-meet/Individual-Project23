@@ -1,0 +1,18 @@
+  .bye {
+    display: block;
+    width: 200px;
+    height: 40px;
+    margin: 10px auto;
+    background-color: #a03f31;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .bye:hover {
+    background-color: #6e1a0f;
+  }
+

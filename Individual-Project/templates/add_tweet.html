@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>iasa's sorting hat</title>
+</head>
+<body>
+  <h1 id="qestionTitle">iasa's sorting hat</h1>
+  <div id="questionBody"></div>
+  <button id="b1" onclick="buttonFunction(1)"></button>
+  <button id="b2" onclick="buttonFunction(2)"></button>
+  <button id="b3" onclick="buttonFunction(3)"></button>
+  <button id="b4" onclick="buttonFunction(4)"></button>
+  <button id="repeatButton" onclick="repeatQuiz()" style="display: none;">Repeat Quiz</button>
+  <script>
+
+    function repeatQuiz() {
+      page_number = 0;
+      gryffindor = 0;
+      ravenclaw = 0;
+      hufflepuf = 0;
+      slytherin = 0;
+      updatePage();
+    }
+
+  </script>
+  <script>
+    var page_number = 0;
+    var gryffindor = 0;
+    var ravenclaw = 0;
+    var hufflepuf= 0;
+    var slytherin = 0;
+
+var pages = [
+  { title: "your basic hogwarts's sorting hat", choices: ["Start the quiz"], results: [] },
+  { title: "What movies do you like most ?", choices: ["scary movies", "disney movies", "funny movies"], results: [0, 0, 0, 0] },
+  { title: "how do you feel about meet?", choices: ["hate", "Mid", "as expected","good"], results: [0, 0, 0,1] },
+  { title: "What class is ur fav?", choices: ["pe", "math", "art"], results: [0, 0, 1] },
+  { title: "what is ur fav weather", choices: ["summer", "winter"], results: [1, 0] },
+  { title: "fav pet at hogwarts", choices: ["toad", "owl", "cat"], results: [1, 0, 0] },
+  { title: "choose", choices: ["river", "forest"], results: [1, 0] },
+  { title: "choose", choices: ["heads", "tails"], results: [1, 0] },
+  { title: "moon or sun", choices: ["sun", "moon"], results: [1, 0] },
+  { title:"{{name['name']}}, your result:", choices: [], results: [] , } // The final page
+];
+    function buttonFunction(choice) {
+      var currentPage = pages[page_number];
+      currentPage.results[choice - 1]++;
+      updateVariables();
+      nextPage();
+    }
+
+    function updateVariables() {
+      gryffindor = pages[1].results[0];
+      ravenclaw= pages[2].results[1];
+      hufflepuf = pages[3].results[2];
+      slytherin = pages[4].results[1];
+    }
+
+    function updatePage() {
+      var currentPage = pages[page_number];
+      document.getElementById("qestionTitle").innerHTML = currentPage.title;
+      document.getElementById("questionBody").innerHTML = "";
+
+      for (var i = 0; i < currentPage.choices.length; i++) {
+        document.getElementById("b" + (i + 1)).style.display = "initial";
+        document.getElementById("b" + (i + 1)).innerHTML = currentPage.choices[i];
+      }
+
+      for (var i = currentPage.choices.length + 1; i <= 4; i++) {
+        document.getElementById("b" + i).style.display = "none";
+        document.getElementById("b" + i).innerHTML = "";
+      }
+
+      if (page_number >= pages.length - 1) {
+        // Reached the last page, display results
+        var result = "Result: ";
+        var maxVariable = Math.max(gryffindor, ravenclaw, hufflepuf, slytherin);
+        if (maxVariable === gryffindor) {
+          result += "gryffindor";
+          console.log("The variable with the highest count is gryffindor.");
+        } else if (maxVariable === ravenclaw) {
+          result += "ravenclaw";
+          console.log("The variable with the highest count is ravenclaw.");
+        } else if (maxVariable === hufflepuf) {
+          result += "hufflepuf";
+          console.log("The variable with the highest count is hufflepuf.");
+        } else {
+          result += "slytherin";
+          console.log("The variable with the highest count is slytherin.");
+        }
+        document.getElementById("b4").innerHTML = result;
+        document.getElementById("b4").style.display = "initial";
+        document.getElementById("repeatButton").style.display = "initial";
+      } else {
+        document.getElementById("b4").style.display = "none";
+        document.getElementById("b4").innerHTML = "";
+        document.getElementById("repeatButton").style.display = "none";
+      }
+    }
+
+    function nextPage() {
+      if (page_number < pages.length - 1) {
+        page_number++;
+        updatePage();
+      }
+    }
+
+    updatePage(); // Initial page update
+
+
+    function buttonFunction(choice) {
+  if (choice === 1) {
+    gryffindor++;
+  } else if (choice === 2) {
+    ravenclaw++;
+  } else if (choice === 3) {
+    hufflepuf++;
+  } else if (choice === 4) {
+    slytherin++;
+  }
+  nextPage();
+}  
+  </script>
+  <style>
+
+
+  #buttonContainer {
+    display: flex;
+    justify-content: space-around;
+  }
+
+ #hi {
+     line-height: 12px;
+     width: 18px;
+     font-size: 8pt;
+     font-family: tahoma;
+     margin-top: 1px;
+     margin-right: 2px;
+     position:absolute;
+     top:0;
+     right:200px;
+ }
+     body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    margin: 20px;
+  }
+
+  h1 {
+    color: #a03f31;
+    font-size: 36px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  #questionBody {
+    margin: 20px 0;
+  }
+
+  button {
+    display: block;
+    width: 200px;
+    height: 40px;
+    margin: 10px auto;
+    background-color: #a03f31;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  button:hover {
+    background-color: #6e1a0f;
+  }
+body{
+  background-image: url('https://bookstacked.com/wp-content/uploads/2016/01/Pottermore-Sorting-Hat.jpg');
+  background-repeat: no-repeat;
+  background-size:cover ;
+}
+
+  #repeatButton {
+    display: none;
+    background-color: #222;
+    border: 2px solid #a03f31;
+    color: #a03f31;
+    font-size: 18px;
+    padding: 10px 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+  }
+
+  #repeatButton:hover {
+    background-color: #a03f31;
+    color: #fff;
+  }
+
+  #result {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+</style>
+<a id ="hi" href="signout"><button>signout</button></a>
+</body>
+</html>
